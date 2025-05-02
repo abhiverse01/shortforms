@@ -1,0 +1,19 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["hello", "hi", "hey"],
+            "responses": ["Hello!", "Hi there!", "Hey!"]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["bye", "goodbye", "see you"],
+            "responses": ["Goodbye!", "See you later!", "Bye!"]
+        },
+        {
+            "tag": "age",
+            "patterns": ["how old are you?", "age?"],
+            "responses": ["I'm a program. I don't have an age!"]
+        }
+    ]
+}
