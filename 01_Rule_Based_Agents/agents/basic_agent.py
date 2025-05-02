@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 from handlers.input_processor import InputProcessor
 from handlers.response_handler import ResponseHandler
+from response_handler.surprise_generator import SurpriseGenerator  # Import SurpriseGenerator
 
 class Agent:
     def __init__(self, intents_path: str, handler_type: str = "exact_match"):
@@ -46,3 +47,37 @@ class Agent:
                 print(f"Agent: {response}")
             except KeyboardInterrupt:
                 break
+
+
+class AdvancedAgent:
+    def __init__(self, config):
+        self.memory = ConversationMemory()
+        self.nlp = NLPProcessor()
+        self.matcher = SemanticMatcher()
+        self.response_gen = SmartResponseGenerator(self.memory)
+        self.knowledge = KnowledgeEngine(config["wolfram_key"])
+        self.weather = WeatherAssistant(config["weather_key"])
+        
+    def process_input(self, user_input: str):
+        # Analyze input
+        analysis = self.nlp.process_text(user_input)
+        
+        # Context-aware matching
+        context = self.memory.get_recent_context()
+        full_text = f"{context}\n{user_input}"
+        
+        # Get best match using semantic similarity
+        intent, confidence = self._match_intent(full_text)
+        
+        # Generate response
+        if confidence < 0.4:
+            return self._handle_unknown_input(user_input)
+            
+        response = self.response_gen.generate_response(intent, analysis["entities"])
+        
+        # Add surprise with 10% probability
+        if random.random() < 0.1:
+            response += f"\n{SurpriseGenerator.unexpected_response()[1]}"
+            
+        self.memory.add_interaction(user_input, response)
+        return response
