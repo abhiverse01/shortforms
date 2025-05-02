@@ -1,0 +1,59 @@
+shortforms/
+├── 01_Rule_Based_Agents/
+│   ├── agents/
+│   │   └── __init__.py
+│   │   └── basic_agent.py
+│   ├── core/
+│   │   └── __init__.py
+│   │   └── memory.py
+│   ├── data/
+│   │   └── intents.json
+│   ├── examples/
+│   │   └── __init__.py
+│   │   └── example_usage.py
+│   ├── handlers/
+│   │   └── __init__.py
+│   │   └── input_processor.py
+│   │   └── response_handler.py
+│   ├── integrations/
+│   │   └── __init__.py
+│   │   └── knowledge.py
+│   │   └── weather.py
+│   ├── nlp/
+│   │   └── __init__.py
+│   │   └── processor.py
+│   │   └── similarity.py
+│   ├── tests/
+│   │   └── __init__.py
+│   │   └── test_agent.py
+│   ├── utils/
+│   │   └── __init__.py
+│   └── Readme.md
+│   └── app.py
+│   └── requirements.txt
+├── 02_RunRunRun/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   └── background.jpg
+│   │   │   └── coin.gif
+│   │   │   └── obstacle.gif
+│   │   │   └── player.gif
+│   │   ├── sounds/
+│   │   │   └── coin.wav
+│   │   │   └── crash.wav
+│   │   │   └── jump.wav
+│   ├── src/
+│   │   ├── entities/
+│   │   │   └── coin.py
+│   │   │   └── obstacle.py
+│   │   │   └── player.py
+│   │   └── game.py
+│   │   └── settings.py
+│   │   └── utils.py
+│   └── index.py
+│   └── main.py
+└── .gitignore
+└── LICENSE
+└── README.md
+└── project_stx.txt
+└── stx.py
